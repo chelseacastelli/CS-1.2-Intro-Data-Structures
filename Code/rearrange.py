@@ -1,11 +1,17 @@
-from random import shuffle
+from random import choice
 import sys
 
 words = []
 
 def randomize_words():
-    shuffle(words)
-    print(' '.join(words))
+    words_after_shuffle = []
+
+    while len(words) > 0:
+         random_word = choice(words)
+         words_after_shuffle.append(random_word)
+         words.remove(random_word)
+
+    print(' '.join(words_after_shuffle))
 
 
 if __name__ == "__main__":
