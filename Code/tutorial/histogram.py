@@ -1,4 +1,4 @@
-
+import pprint
 
 def read_in_data(fileName):
 
@@ -13,27 +13,28 @@ def histogram(source_text):
     for word in source_text.split():
         word = word.upper()
         if word in words:
-            # unique_words.update(word += 1)
             words[word] += 1
         else:
             words.update({word: 1})
 
     return words
 
-def unique_words(histogram_dictionary):
-    total = 0
-    for key in histogram_dictionary:
-        total += histogram_dictionary[key]
+def unique_words(histogram_DS):
+    return len(histogram_DS)
 
-    return total
+def frequency(word, histogram_DS):
+    word = word.upper()
+    return histogram_DS.get(word)
 
-def frequency(word, histogram):
-    pass
 
-words = read_in_data('sample_wordz.txt')
-# print(words)
-u_words_hist = histogram(words)
-print(u_words_hist)
+if __name__ == "__main__":
+    words = read_in_data('sample_wordz.txt')
 
-total_u_words = unique_words(u_words_hist)
-print(total_u_words)
+    u_words_hist = histogram(words)
+    print(pprint.pprint(u_words_hist))
+
+    total_u_words = unique_words(u_words_hist)
+    print(total_u_words)
+
+    frequency_of_word = frequency('the', u_words_hist)
+    print(frequency_of_word)
