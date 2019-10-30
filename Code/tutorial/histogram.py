@@ -38,3 +38,5 @@ if __name__ == "__main__":
 
     frequency_of_word = frequency('the', u_words_hist)
     print(frequency_of_word)
+
+    print(random_word(u_words_hist))
