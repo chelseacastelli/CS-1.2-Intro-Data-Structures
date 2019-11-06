@@ -1,5 +1,4 @@
 from histogram import histogram
-import pprint
 import sys
 import random
 
@@ -8,6 +7,14 @@ words = " "
 def random_word(histogram_DS):
     rand_index = random.randrange(len(histogram_DS) - 1)
     return list(histogram_DS)[rand_index]
+
+
+# Divide num of occurances by total words
+# dart = random.random()
+# random can generate perfect 0.0 but not perfect 1.0
+def sample_by_frequency(histogram_DS):
+    pass
+
 
 
 if __name__ == '__main__':
@@ -20,4 +27,3 @@ if __name__ == '__main__':
     histo = histogram(words)
 
     print(random_word(histo))
-
