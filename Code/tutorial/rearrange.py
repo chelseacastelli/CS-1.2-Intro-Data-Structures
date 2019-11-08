@@ -4,6 +4,7 @@ import sys
 
 
 def randomize_words(words):
+    '''Shuffle words'''
     words_after_shuffle = []
 
     while len(words) > 0:
@@ -15,11 +16,13 @@ def randomize_words(words):
 
 
 def reverse_word(words):
+    '''Reverse word(s) by each letter'''
     for word in words:
         print(word[::-1], end=' ')
 
 
 def reverse_sentence(words):
+    '''Reverse order of words in sentence'''
     for word in words[::-1]:
         print(word, end=' ')
 
