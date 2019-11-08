@@ -1,6 +1,7 @@
 
 import random
 import sys
+import time
 
 
 def read_in_data(fileName):
@@ -9,6 +10,7 @@ def read_in_data(fileName):
         data = file.read().splitlines()
 
     return data
+
 
 def get_random_words(words, num_words):
     '''Get random words from file'''
@@ -25,10 +27,22 @@ def print_sentence(words):
 
 
 if __name__ == '__main__':
+
     dictionary_words = read_in_data('/usr/share/dict/words')
+
     if len(sys.argv) >= 2:
         num_words = int(sys.argv[1])
+
+        start = time.perf_counter()
         words = get_random_words(dictionary_words, num_words)
+        elapsed = time.perf_counter()
+
+        print('\n')
         print_sentence(words)
+
+        print(f'\nTime spent getting random words: {elapsed - start}\n')
+
+
+
     else:
         print("Need argument for number of words to pick")
