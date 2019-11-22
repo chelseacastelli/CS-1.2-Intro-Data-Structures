@@ -1,17 +1,19 @@
-import pprint
+from pprint import pprint
+from re import split, sub
 
 def read_in_data(fileName):
 
     with open(fileName, 'r') as file:
-        data = file.read().splitlines()
+        data = file.read().lower()
+        strip_punc = sub('([?:!.,;"]*)([a-z]+)([?:!.,;"]*)',r'\2', data)
+        words = split(r'\s', strip_punc)
 
-    data = ' '.join(data)
-    return data
+    return words
 
 def histogram(source_text):
     words = dict()
-    for word in source_text.split():
-        word = word.upper()
+    for word in source_text:
+        word = word
         if word in words:
             words[word] += 1
         else:
@@ -31,12 +33,4 @@ if __name__ == "__main__":
     words = read_in_data('sample_wordz.txt')
 
     u_words_hist = histogram(words)
-    print(pprint.pprint(u_words_hist))
-
-    total_u_words = unique_words(u_words_hist)
-    print(total_u_words)
-
-    frequency_of_word = frequency('the', u_words_hist)
-    print(frequency_of_word)
-
-    print(random_word(u_words_hist))
+    pprint(u_words_hist)
