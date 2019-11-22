@@ -11,9 +11,8 @@ def read_in_data(fileName):
     return words
 
 def histogram(source_text):
-    words = dict()
+    words = {}
     for word in source_text:
-        word = word
         if word in words:
             words[word] += 1
         else:
@@ -21,16 +20,31 @@ def histogram(source_text):
 
     return words
 
+def listogram(source_text):
+    words = []
+    histo = histogram(source_text)
+    for word in histo:
+        words.append([word, histo[word]])
+    return words
+
+def tuplogram(source_text):
+    words = []
+    histo = histogram(source_text)
+    for word in histo:
+        words.append((word, histo[word]))
+    return words
+
 def unique_words(histogram_DS):
     return len(histogram_DS)
 
 def frequency(word, histogram_DS):
-    word = word.upper()
     return histogram_DS.get(word)
 
 
 if __name__ == "__main__":
     words = read_in_data('sample_wordz.txt')
 
-    u_words_hist = histogram(words)
-    pprint(u_words_hist)
+    dict_hist = histogram(words)
+    list_hist = listogram(words)
+    tup_hist = tuplogram(words)
+
