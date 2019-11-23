@@ -156,7 +156,7 @@ class LinkedList(object):
             current_node = current_node.next
 
         # Raise error if reach tail node and value old_data never found
-        raise ValueError(f'Item not found: {item}')
+        raise ValueError(f'Item not found: {old_data}')
 
 
 def test_linked_list():
