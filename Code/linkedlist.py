@@ -63,11 +63,15 @@ class LinkedList(object):
         # TODO: Create new node to hold given item
         # TODO: Append node after tail, if it exists
 
+
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Create new node to hold given item
         # TODO: Prepend node before head, if it exists
+        new_node = Node(item)
+        new_node.next = self.head
+        self.head = new_node
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
@@ -115,4 +119,11 @@ def test_linked_list():
 
 
 if __name__ == '__main__':
-    test_linked_list()
+    # test_linked_list()
+    mylist = LinkedList()
+
+    mylist.append('a')
+    mylist.append('b')
+    mylist.prepend('c')
+
+    print(mylist)
