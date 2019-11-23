@@ -59,20 +59,34 @@ class LinkedList(object):
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
-        TODO: Running time: O(???) Why and under what conditions?"""
-        # TODO: Create new node to hold given item
-        # TODO: Append node after tail, if it exists
+        Running time: O(1) - constant because it just keeps track of tail node and changes it"""
+        new_node = Node(item)
+
+        # If list is empty, make new_node the head and return
+        if self.is_empty():
+            self.head = new_node
+            return
+
+        # Traverse list till the last node is reached, then create new tail node
+        last_node = self.head
+        while last_node.next:
+            last_node = last_node.next
+        last_node.next = new_node
 
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
         Running time: O(1) - constant because it just keeps track of head node and changes it"""
         new_node = Node(item)
+
+        # If list is empty, make new_node the head and return
         if self.is_empty():
             self.head = new_node
-        else:
-            new_node.next = self.head
-            self.head = new_node
+            return
+
+        # Make current head the next node and new_node the head
+        new_node.next = self.head
+        self.head = new_node
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
@@ -142,8 +156,8 @@ if __name__ == '__main__':
     # test_linked_list()
     mylist = LinkedList()
 
-    mylist.prepend('a')
-    mylist.prepend('b')
+    mylist.append('a')
+    mylist.append('b')
     mylist.prepend('c')
 
     print(mylist)
