@@ -1,4 +1,4 @@
-from histogram import read_in_data, histogram
+from histogram import read_in_data, dictogram
 import sys
 from random import randrange, choices
 
@@ -7,8 +7,6 @@ def random_word(histogram_DS):
     return list(histogram_DS)[rand_index]
 
 # Divide num of occurances by total words
-# dart = random.random()
-# random can generate perfect 0.0 but not perfect 1.0
 def sample_by_frequency(histogram_DS):
     histo_keys = [key for key in histogram_DS]
     tokens = sum(histogram_DS.values())
