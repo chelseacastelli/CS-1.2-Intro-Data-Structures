@@ -135,18 +135,29 @@ class LinkedList(object):
 
         # If current_node is None, we've reached the tail node (or the list is empty) & have not found the item
         # Raise error
-        if current_node is None or self.is_empty():
+        if current_node is None:
             raise ValueError(f'Item not found: {item}')
 
         # Link previous_node to next node & set deleted node to None
         previous_node.next = current_node.next
         current_node = None
 
+    def replace(self, old_data, new_data):
+        current_node = self.head
+
+        while current_node:
+            if current_node.data == old_data:
+                current_node.data = new_data
+                return
+
+            current_node = current_node.next
+
 
 def test_linked_list():
     ll = LinkedList()
     print('list: {}'.format(ll))
 
+    # TEST APPEND
     print('\nTesting append:')
     for item in ['A', 'B', 'C']:
         print('append({!r})'.format(item))
@@ -156,6 +167,19 @@ def test_linked_list():
     print('head: {}'.format(ll.head))
     print('tail: {}'.format(ll.tail))
     print('length: {}'.format(ll.length()))
+
+    # TEST REPLACE
+    print('\nTesting replace:')
+    for item in ['A', 'B', 'C']:
+        print('replace({!r})'.format(item))
+        ll.replace(item, 'J')
+        print('list: {}'.format(ll))
+        break
+
+    # TEST PREPEND
+    print('\nTesting prepend:')
+    ll.prepend('A')
+    print('list: {}'.format(ll))
 
     # Enable this after implementing delete method
     delete_implemented = True
@@ -171,17 +195,8 @@ def test_linked_list():
         print('length: {}'.format(ll.length()))
 
 
+
+
 if __name__ == '__main__':
     test_linked_list()
-    # mylist = LinkedList()
-    #
-    # mylist.append('a')
-    # mylist.append('b')
-    # mylist.prepend('c')
-    #
-    # print(mylist)
-    #
-    # mylist.delete('a')
-    # mylist.delete('c')
-    #
-    # print(mylist)
+
