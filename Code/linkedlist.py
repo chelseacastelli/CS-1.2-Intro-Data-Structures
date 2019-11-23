@@ -103,10 +103,16 @@ class LinkedList(object):
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
-        TODO: Best case running time: O(???) Why and under what conditions?
-        TODO: Worst case running time: O(???) Why and under what conditions?"""
-        # TODO: Loop through all nodes to find item where quality(item) is True
-        # TODO: Check if node's data satisfies given quality function
+        Best case running time: O(1) - constant if node is head node
+        Worst case running time: O(n) if entire list traversed """
+
+        current_node = self.head
+
+        while current_node:
+            if quality(current_node.data):
+                return current_node.data
+            current_node = current_node.next
+        return None
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
