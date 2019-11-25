@@ -69,12 +69,13 @@ class LinkedList(object):
 
         new_node = Node(item)
 
-        # If list is empty, make new_node the head and return
+        # If list is empty, make new_node the head and tail, return
         if self.is_empty():
             self.head = new_node
             self.tail = new_node
             return
         else:
+            # Make current tail point to new_node and make new_node the tail
             curr_tail = self.tail
             curr_tail.next = new_node
             self.tail = new_node
@@ -112,6 +113,9 @@ class LinkedList(object):
         Best case running time: O(1) if first item is deleted
         Worst case running time: O(n) if last item is deleted & list is traversed """
 
+        # This method doesnt successfully change the tail
+        # Still figuring it out..
+
         current_node = self.head
 
         # If head node holds given item - delete it & return
@@ -121,6 +125,7 @@ class LinkedList(object):
             return
 
         # Traverse list until item found
+        # Keep track of previous node
         previous_node = None
         while current_node is not None and current_node.data != item:
             previous_node = current_node
@@ -198,9 +203,6 @@ def test_linked_list():
 
         print('list: {}'.format(ll))
         print('length: {}\n'.format(ll.length()))
-
-
-
 
 if __name__ == '__main__':
     test_linked_list()
