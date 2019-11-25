@@ -66,6 +66,7 @@ class LinkedList(object):
     def append(self, item):
         """Insert the given item at the tail of this linked list.
         Running time: O(1) - constant because it just keeps track of tail node and changes it"""
+
         new_node = Node(item)
 
         # If list is empty, make new_node the head and return
@@ -73,14 +74,10 @@ class LinkedList(object):
             self.head = new_node
             self.tail = new_node
             return
-
-        # Traverse list till the last node is reached, then create new tail node
-        last_node = self.head
-        while last_node.next:
-            last_node = last_node.next
-        last_node.next = new_node
-        self.tail = last_node.next
-
+        else:
+            curr_tail = self.tail
+            curr_tail.next = new_node
+            self.tail = new_node
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
@@ -165,9 +162,10 @@ def test_linked_list():
         print('append({!r})'.format(item))
         ll.append(item)
         print('list: {}'.format(ll))
+        print('head: {}'.format(ll.head))
+        print('tail: {}\n'.format(ll.tail))
 
-    print('head: {}'.format(ll.head))
-    print('tail: {}'.format(ll.tail))
+    print('list: {}'.format(ll))
     print('length: {}'.format(ll.length()))
 
     # TEST REPLACE
@@ -176,12 +174,16 @@ def test_linked_list():
         print('replace({!r})'.format(item))
         ll.replace(item, 'J')
         print('list: {}'.format(ll))
+        print('head: {}'.format(ll.head))
+        print('tail: {}\n'.format(ll.tail))
         break
 
     # TEST PREPEND
     print('\nTesting prepend:')
     ll.prepend('A')
     print('list: {}'.format(ll))
+    print('head: {}'.format(ll.head))
+    print('tail: {}\n'.format(ll.tail))
 
     # Enable this after implementing delete method
     delete_implemented = True
@@ -191,10 +193,11 @@ def test_linked_list():
             print('delete({!r})'.format(item))
             ll.delete(item)
             print('list: {}'.format(ll))
+            print('head: {}'.format(ll.head))
+            print('tail: {}\n'.format(ll.tail))
 
-        print('head: {}'.format(ll.head))
-        print('tail: {}'.format(ll.tail))
-        print('length: {}'.format(ll.length()))
+        print('list: {}'.format(ll))
+        print('length: {}\n'.format(ll.length()))
 
 
 
