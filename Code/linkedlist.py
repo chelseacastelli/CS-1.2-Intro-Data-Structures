@@ -50,11 +50,7 @@ class LinkedList(object):
 
     def is_empty(self):
         """Return a boolean indicating whether this linked list is empty."""
-        if self.head is None:
-            self.head = None
-            self.tail = None
-            return True
-        return False
+        return self.head is None
 
     def length(self):
         """Return the length of this linked list by traversing its nodes.
