@@ -19,6 +19,7 @@ class LinkedList(object):
         """Initialize this linked list and append the given items, if any."""
         self.head = None  # First node
         self.tail = None  # Last node
+        self.count = 0
         # Append given items
         if items is not None:
             for item in items:
@@ -54,14 +55,16 @@ class LinkedList(object):
 
     def length(self):
         """Return the length of this linked list by traversing its nodes.
-        Running time: O(n) - linear because it must traverse the entire list of n length"""
-        count = 0
-        current_node = self.head
-
-        while current_node:
-            count += 1
-            current_node = current_node.next
-        return count
+        Using length(): O(n) - linear because it must traverse the entire list of n length
+        Using count property: 0(1) - constant because it's just returning a number"""
+        pass
+        # count = 0
+        # current_node = self.head
+        #
+        # while current_node:
+        #     count += 1
+        #     current_node = current_node.next
+        # return count
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
@@ -73,12 +76,15 @@ class LinkedList(object):
         if self.is_empty():
             self.head = new_node
             self.tail = new_node
+            self.count += 1
             return
         else:
             # Make current tail point to new_node and make new_node the tail
             curr_tail = self.tail
             curr_tail.next = new_node
             self.tail = new_node
+            self.count += 1
+
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
@@ -89,11 +95,13 @@ class LinkedList(object):
         if self.is_empty():
             self.head = new_node
             self.tail = new_node
+            self.count += 1
             return
 
         # Make current head the next node and new_node the head
         new_node.next = self.head
         self.head = new_node
+        self.count += 1
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
@@ -122,6 +130,7 @@ class LinkedList(object):
         if current_node is not None and current_node.data == item:
             self.head = current_node.next
             current_node = None
+            self.count -= 1
             return
 
         # Traverse list until item found
@@ -139,6 +148,7 @@ class LinkedList(object):
         # Link previous_node to next node & set deleted node to None
         previous_node.next = current_node.next
         current_node = None
+        self.count -= 1
 
     def replace(self, old_item, new_item):
         """Replace the given item from this linked list with new_data, or raise ValueError.
@@ -171,7 +181,7 @@ def test_linked_list():
         print('tail: {}\n'.format(ll.tail))
 
     print('list: {}'.format(ll))
-    print('length: {}'.format(ll.length()))
+    print('length: {}'.format(ll.count))
 
     # TEST REPLACE
     print('\nTesting replace:')
@@ -202,7 +212,7 @@ def test_linked_list():
             print('tail: {}\n'.format(ll.tail))
 
         print('list: {}'.format(ll))
-        print('length: {}\n'.format(ll.length()))
+        print('length: {}\n'.format(ll.count))
 
 if __name__ == '__main__':
     test_linked_list()
