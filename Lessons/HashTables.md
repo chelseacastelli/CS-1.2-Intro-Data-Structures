@@ -1,10 +1,11 @@
 # Hash Tables
 
 ## Activities
-- Draw diagram of how a linked list data structure is stored in memory
-- Compare and contrast diagram representations with partners
-- Code review implementations of linked list class instance methods
+- Complete [linked list time complexity worksheet]
+    - Watch [video of linked list time complexity worksheet review]
 - Lecture and discussion following [hash table slides]
+    - Watch [video of hash table lecture]
+- Act out how hash table data structure and algorithms work
 
 ## Objectives
 After completing this class session and the associated tutorial challenges, students will be able to ...
@@ -48,6 +49,9 @@ These challenges are more difficult and help you push your skills and understand
     - Write additional test cases to expand the [hash table unit tests] to ensure your collision resolution strategy is robust
 
 
+[linked list time complexity worksheet]: https://make.sc/linked-list-time-complexity-worksheet
+[video of linked list time complexity worksheet review]: https://www.youtube.com/watch?v=ZGtkVO6XlmQ
+[video of hash table lecture]: https://www.youtube.com/watch?v=drQ_FfCVxFU
 [hash table slides]: https://github.com/Make-School-Courses/CS-1.2-Intro-Data-Structures/blob/master/Slides/HashTables.pdf
 [hash table video lecture]: https://www.youtube.com/watch?v=nLWXJ6IDKmQ
 [hash table video]: https://www.youtube.com/watch?v=shs0KM3wKv8

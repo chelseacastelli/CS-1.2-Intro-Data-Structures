@@ -1,11 +1,21 @@
 # Algorithm Analysis
 
-## Activities
+## Linked List Activities
+- Complete [linked list worksheet]
+    - When finished, compare your answers to [linked list worksheet solutions]
+- Draw diagram of how a linked list data structure is stored in memory
+- Compare and contrast diagram representations with partners
+- Code review implementations of linked list class instance methods
+- Read and discuss [article on algorithm analysis and big O notation][IC big O]
+
+## Hash Table Activities
+- Complete [hash table worksheet]
+    - When finished, compare your answers to [hash table worksheet solutions]
 - Draw diagram of how a hash table data structure is stored in memory
 - Compare and contrast diagram representations with partners
+- Complete [hash table time complexity worksheet]
 - Form teams and collaboratively draw more complete hash table diagrams
 - Review merits of each diagram's faithfulness to actual memory organization
-- Read and discuss [article on algorithm analysis and big O notation][IC big O]
 - Code review implementations of hash table class instance methods
 
 ## Objectives
@@ -22,10 +32,13 @@ After completing this class session and the associated tutorial challenges, stud
 - Read Justin Abrams's [article on big O notation explained by a self-taught programmer][JA big O]
 - Watch HackerRank's [big O notation video]
 - Watch Harvard's [asymptotic notation video] and [computational complexity video]
+- Play with VisuAlgo's [interactive linked list][VisuAlgo list] and [hash table visualizations][VisuAlgo hash table]
 
 ## Challenges
 These challenges are the baseline required to complete the project and course.
 Be sure to complete these before next class session and before starting on the stretch challenges below.
+
+### Linked List Challenges
 - Annotate these `LinkedList` class instance methods with time complexity analysis:
     - `length()`
     - `append(item)`
@@ -33,6 +46,8 @@ Be sure to complete these before next class session and before starting on the s
     - `find(quality)`
     - `delete(item)`
     - See the `items()` instance method for an example annotation
+
+### Hash Table Challenges
 - Annotate these `HashTable` class instance methods with time complexity analysis:
     - `length()`
     - `items()`
@@ -48,6 +63,11 @@ These challenges are more difficult and help you push your skills and understand
     - Benchmark the built-in `list` and `dict` types and compare to your `LinkedList` and `HashTable` classes
 
 
+[linked list worksheet]: https://make.sc/linked-list-worksheet
+[linked list worksheet solutions]: https://make.sc/linked-list-worksheet-solutions
+[hash table worksheet]: https://make.sc/hash-table-worksheet
+[hash table worksheet solutions]: https://make.sc/hash-table-worksheet-solutions
+[hash table time complexity worksheet]: https://make.sc/hash-table-time-complexity-worksheet
 [algorithm analysis slides]: https://github.com/Make-School-Courses/CS-1.2-Intro-Data-Structures/blob/master/Slides/AlgorithmAnalysis.pdf
 [big O notation video]: https://www.youtube.com/watch?v=v4cd1O4zkGw
 [asymptotic notation video]: https://www.youtube.com/watch?v=iOq5kSKqeR4
@@ -55,6 +75,8 @@ These challenges are more difficult and help you push your skills and understand
 [IC big O]: https://www.interviewcake.com/article/python/big-o-notation-time-and-space-complexity
 [SO big O]: https://stackoverflow.com/questions/487258/what-is-a-plain-english-explanation-of-big-o-notation
 [JA big O]: https://justin.abrah.ms/computer-science/big-o-notation-explained.html
+[VisuAlgo list]: https://visualgo.net/list
+[VisuAlgo hash table]: https://visualgo.net/hashtable
 
 [`time` module]: https://docs.python.org/3/library/time.html
 [`timeit` module]: https://docs.python.org/3/library/timeit.html
