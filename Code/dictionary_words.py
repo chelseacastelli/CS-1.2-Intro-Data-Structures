@@ -5,7 +5,7 @@ import time
 
 
 def read_in_data(fileName):
-    '''Read date in from file'''
+    '''Read data in from file'''
     with open(fileName, 'r') as file:
         data = file.read().splitlines()
 

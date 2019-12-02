@@ -1,5 +1,4 @@
 from histogram import read_in_data, dictogram
-import sys
 from random import randrange, choices
 
 def random_word(histogram_DS):
