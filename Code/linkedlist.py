@@ -55,16 +55,8 @@ class LinkedList(object):
 
     def length(self):
         """Return the length of this linked list by traversing its nodes.
-        Using length(): O(n) - linear because it must traverse the entire list of n length
-        Using count property: 0(1) - constant because it's just returning a number"""
-        pass
-        # count = 0
-        # current_node = self.head
-        #
-        # while current_node:
-        #     count += 1
-        #     current_node = current_node.next
-        # return count
+        Running time: 0(1) - constant because it's just returning a number"""
+        return self.count
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
@@ -154,6 +146,7 @@ class LinkedList(object):
         """Replace the given item from this linked list with new_data, or raise ValueError.
         Best case running time: O(1) if first item is replaced
         Worst case running time: O(n) if last item is replaced & whole list is traversed """
+        
         current_node = self.head
 
         while current_node:
@@ -181,7 +174,7 @@ def test_linked_list():
         print('tail: {}\n'.format(ll.tail))
 
     print('list: {}'.format(ll))
-    print('length: {}'.format(ll.count))
+    print('length: {}'.format(ll.length()))
 
     # TEST REPLACE
     print('\nTesting replace:')
@@ -212,7 +205,7 @@ def test_linked_list():
             print('tail: {}\n'.format(ll.tail))
 
         print('list: {}'.format(ll))
-        print('length: {}\n'.format(ll.count))
+        print('length: {}\n'.format(ll.length()))
 
 if __name__ == '__main__':
     test_linked_list()
