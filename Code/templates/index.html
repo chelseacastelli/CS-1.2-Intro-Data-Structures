@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <center>
+
+        <h3>{{ ran_word }}</h3>
+
+        <form action="/new" method="POST">
+            <button type="submit" name="button">New Word</button>
+        </form>
+
+    </center>
+
+{% endblock content %}
