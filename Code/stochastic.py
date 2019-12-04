@@ -22,6 +22,19 @@ def sample_by_frequency(histogram_DS):
 
     return f"{chosen_word}: {weighted_values[word_index]}"
 
+def no_choice_freq_sample(histo):
+    total = 0
+    dart = randint(0, sum(histo.values()))
+
+    # print(histo.items())
+    for each in histo.items():
+        # print(f"Total: {total} + {each[1]}")
+        total += each[1]
+        if dart <= total:
+            # print( f"Dart: {dart} | Word: {each[0]}")
+            return each[0]
+
+
 if __name__ == '__main__':
     # Store params as string
     words = read_in_data('sample_wordz.txt')
