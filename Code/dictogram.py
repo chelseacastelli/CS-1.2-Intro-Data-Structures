@@ -1,7 +1,7 @@
 #!python
 
 from __future__ import division, print_function  # Python 2 and 3 compatibility
-import random
+from random import uniform
 
 
 class Dictogram(dict):
@@ -29,12 +29,20 @@ class Dictogram(dict):
 
     def frequency(self, word):
         """Return frequency count of given word, or 0 if word is not found."""
-        
+        return self.get(word, 0)
+
 
     def sample(self):
         """Return a word from this histogram, randomly sampled by weighting
         each word's probability of being chosen by its observed frequency."""
-        # TODO: Randomly choose a word based on its frequency in this histogram
+        total = 0
+        dart = uniform(0, self.tokens)
+
+        for each in self.items():
+            total += each[1]
+            if dart <= total:
+                return each[0]
+
 
 
 def print_histogram(word_list):

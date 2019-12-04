@@ -11,7 +11,7 @@ def sample_by_frequency(histogram_DS):
     tokens = sum(histogram_DS.values())
 
     weighted_values = []
-    for value in histo.values():
+    for value in histogram_DS.values():
         weighted = value / tokens
         weighted_values.append(weighted)
 
