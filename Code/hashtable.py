@@ -66,15 +66,14 @@ class HashTable(object):
         Running time: O(l) because it jumps straight to the bucket and then finds key in list """
         # Find bucket where given key belongs
         bucket = self.buckets[self._bucket_index(key)]
-        item = bucket.find(lambda item: item[0] == key)
 
-        # Check if key-value entry exists in bucket
-        if self.contains(key):
-            # If found, return value associated with given key
-            return item[1]
-        
-        # Otherwise, raise error to tell user get failed
-       raise KeyError(f'Key not found: {key}')
+        for stored_key, stored_value in bucket.items():
+            # Check if key-value entry exists in bucket
+            if key == stored_key:
+                # If found, return value associated with given key
+                return stored_key
+
+        raise KeyError(f'Key not found: {key}')
 
     def set(self, key, value):
         """Insert or update the given key with its associated value.
@@ -87,7 +86,7 @@ class HashTable(object):
         if item is not None:
             # If found, update value associated with given key
             bucket.replace(item, (key, value))
-            
+
         # Otherwise, insert given key-value entry into bucket
         else:
             bucket.append((key, value))
