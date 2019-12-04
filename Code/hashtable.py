@@ -56,16 +56,21 @@ class HashTable(object):
 
     def length(self):
         """Return the number of key-value entries by traversing its buckets.
-        TODO: Running time: O(???) Why and under what conditions?"""
-        # TODO: Loop through all buckets
-        # TODO: Count number of key-value entries in each bucket
+        Running time: O(1) constant because it's just returning a value"""
         return self.HT_size
 
     def contains(self, key):
         """Return True if this hash table contains the given key, or False.
-        TODO: Running time: O(???) Why and under what conditions?"""
-        # TODO: Find bucket where given key belongs
-        # TODO: Check if key-value entry exists in bucket
+        Running time: O(l) gets index of bucket and then checks if key is in list"""
+        # Find bucket where given key belongs
+        bucket = self.buckets[self._bucket_index(key)]
+        item = bucket.find(lambda item: item[0] == key)
+
+        # Check if key-value entry exists in bucket
+        if item is not None:
+            return True
+
+        return False
 
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError.
@@ -83,7 +88,7 @@ class HashTable(object):
 
     def set(self, key, value):
         """Insert or update the given key with its associated value.
-        Running time: O(l) because it jumps straight to the bucket and then finds key in list & sets w/o traversing """
+        Running time: O(l) because it jumps straight to the bucket and then traverses list to check if the value already exists ( O(n) ), otherwise, it appends """
         # Find bucket where given key belongs
         bucket = self.buckets[self._bucket_index(key)]
         item = bucket.find(lambda item: item[0] == key)
@@ -100,7 +105,7 @@ class HashTable(object):
 
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
-        TODO: Running time: O(1) constant because it because it jumps straight to the bucket and then finds key in list"""
+        TODO: Running time: O(l) because it because it jumps straight to the bucket and then traverses list to find value (if it exists)"""
         # Find bucket where given key belongs
         bucket = self.buckets[self._bucket_index(key)]
         item = bucket.find(lambda item: item[0] == key)
