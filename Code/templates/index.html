@@ -2,14 +2,14 @@
 
 {% block content %}
 
-<div class="container pt-5 border-3">
+<div class="container pt-5 border-3 bg-black">
 
     <center>
 
-        <h3 style="font-family: verdana;">{{ ran_word }}</h3>
+        <h3 style="font-family: verdana;">{{ sentence }}</h3>
 
         <form action="/new" method="POST">
-            <button class="btn btn-danger mt-3" type="submit" name="button" style="font-family: verdana;">New Word</button>
+            <button class="btn btn-danger mt-3" type="submit" name="button" style="font-family: verdana;">New Sentence</button>
         </form>
 
     </center>
