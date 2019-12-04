@@ -113,34 +113,34 @@ class LinkedList(object):
         Best case running time: O(1) if first item is deleted
         Worst case running time: O(n) if last item is deleted & list is traversed """
 
-        # This method doesnt successfully change the tail
-        # Still figuring it out..
-
         current_node = self.head
-
-        # If head node holds given item - delete it & return
-        if current_node is not None and current_node.data == item:
-            self.head = current_node.next
-            current_node = None
-            self.count -= 1
-            return
-
-        # Traverse list until item found
-        # Keep track of previous node
         previous_node = None
-        while current_node is not None and current_node.data != item:
-            previous_node = current_node
-            current_node = current_node.next
 
-        # If current_node is None, we've reached the tail node (or the list is empty) & have not found the item
-        # Raise error
-        if current_node is None:
-            raise ValueError(f'Item not found: {item}')
+        while current_node is not None:
+            if item == current_node.data:
+                # Deleting the head node
+                if previous_node is None:
+                    self.head = current_node.next
+                    
+                    # Deleting the tail node
+                    if current_node.next is None:
+                        self.tail = previous_node
+                
+                elif current_node.next is None:
+                    previous_node.next = None
+                    self.tail = previous_node
+                    
+                else:
+                    previous_node.next = current_node.next
+                    
+                self.count -= 1
+                return None
+    
+            else:
+                previous_node = current_node
+                current_node = current_node.next
 
-        # Link previous_node to next node & set deleted node to None
-        previous_node.next = current_node.next
-        current_node = None
-        self.count -= 1
+        raise ValueError('Item not found: {}'.format(item)) 
 
     def replace(self, old_item, new_item):
         """Replace the given item from this linked list with new_data, or raise ValueError.
