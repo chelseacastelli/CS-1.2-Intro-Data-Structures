@@ -9,6 +9,7 @@ class HashTable(object):
         """Initialize this hash table with the given initial size."""
         # Create a new list (used as fixed-size array) of empty linked lists
         self.buckets = [LinkedList() for _ in range(init_size)]
+        self.count = 0
 
     def __str__(self):
         """Return a formatted string representation of this hash table."""
@@ -54,6 +55,7 @@ class HashTable(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all buckets
         # TODO: Count number of key-value entries in each bucket
+        return self.count
 
     def contains(self, key):
         """Return True if this hash table contains the given key, or False.
@@ -71,7 +73,7 @@ class HashTable(object):
             # Check if key-value entry exists in bucket
             if key == stored_key:
                 # If found, return value associated with given key
-                return stored_key
+                return stored_value
 
         raise KeyError(f'Key not found: {key}')
 
@@ -90,6 +92,7 @@ class HashTable(object):
         # Otherwise, insert given key-value entry into bucket
         else:
             bucket.append((key, value))
+            self.count += 1
 
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
