@@ -1,7 +1,7 @@
 #!python
 
 from __future__ import division, print_function  # Python 2 and 3 compatibility
-import random
+from random import uniform
 
 
 class Listogram(list):
@@ -51,12 +51,23 @@ class Listogram(list):
     def index_of(self, target):
         """Return the index of entry containing given target word if found in
         this histogram, or None if target word is not found."""
+        for item in self:
+            if item[0] == target:
+                return self.index(item)
+
+        return None
 
 
     def sample(self):
         """Return a word from this histogram, randomly sampled by weighting
         each word's probability of being chosen by its observed frequency."""
-        # TODO: Randomly choose a word based on its frequency in this histogram
+        total = 0
+        dart = uniform(0, self.tokens)
+
+        for item in self:
+            total += item[1]
+            if dart <= total:
+                return item[0]
 
 
 def print_histogram(word_list):
