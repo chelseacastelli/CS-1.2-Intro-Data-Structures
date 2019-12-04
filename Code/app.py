@@ -5,7 +5,7 @@ from markov_chain import markov_histo, stochastic_sample, random_walk
 
 app = Flask(__name__)
 
-source_text = 'static/sample_wordz.txt'
+source_text = 'tumblr_wordz.txt'
 
 words = read_in_data(source_text)
 cleaned_text = clean_text(words)
