@@ -8,7 +8,7 @@
 
 
 <!-- Navigation -->
-<nav class=" navbar navbar-expand-md navbar-light bg-white">
+<nav class=" navbar navbar-expand-md navbar-light bg-white pb-5">
 
     <div class="container-fluid">
         <a class="navbar-brand" href="#"><img clas="nav-logo" src="static/sad_twitter_logo.png" style="max-height: 60px;" alt=""><img src="static/logo.png" style="max-height: 60px;" alt=""></a>
@@ -16,23 +16,26 @@
 
 </nav>
 
+<div class="container pt-5" style="max-height:200px;">
+    <div class="row align-items-center">
 
-<!--- Image Slider -->
+        <div class="col text-center">
 
+            <h3 style="font-family: verdana;">{{ sentence }}</h3>
 
-<!--- Jumbotron -->
+            <form action="/new" method="POST">
+                <button class="btn btn-sm mt-3 mb-5 text-white" type="submit" name="button" style="font-family: verdana; background: #4490D0;">New Sentence</button>
+            </form>
+            <!-- <br><br> -->
+            <h4>OR</h4>
+            <form class="" action="/new" method="post">
+                <input class="form-control-sm col-1 text-center mt-5" type="text" placeholder="# of wordz">
+                <br>
+                <button class="btn btn-primary btn-sm col-1 mt-3 text-white" type="submit" name="button" style="font-family: verdana; background: #4490D0;">Go</button>
+            </form>
+        </div>
 
-<div class="container pt-5 border-3 bg-black">
-
-    <center>
-
-        <h3 style="font-family: verdana;">{{ sentence }}</h3>
-
-        <form action="/new" method="POST">
-            <button class="btn btn-primary mt-3" type="submit" name="button" style="font-family: verdana;">New Sentence</button>
-        </form>
-
-    </center>
+    </div>
 
 </div>
 
