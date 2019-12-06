@@ -1,5 +1,5 @@
 #!python
-
+import time
 
 class Node(object):
 
@@ -121,32 +121,32 @@ class LinkedList(object):
                 # Deleting the head node
                 if previous_node is None:
                     self.head = current_node.next
-                    
+
                     # Deleting the tail node
                     if current_node.next is None:
                         self.tail = previous_node
-                
+
                 elif current_node.next is None:
                     previous_node.next = None
                     self.tail = previous_node
-                    
+
                 else:
                     previous_node.next = current_node.next
-                    
+
                 self.count -= 1
                 return None
-    
+
             else:
                 previous_node = current_node
                 current_node = current_node.next
 
-        raise ValueError('Item not found: {}'.format(item)) 
+        raise ValueError('Item not found: {}'.format(item))
 
     def replace(self, old_item, new_item):
         """Replace the given item from this linked list with new_data, or raise ValueError.
         Best case running time: O(1) if first item is replaced
         Worst case running time: O(n) if last item is replaced & whole list is traversed """
-        
+
         current_node = self.head
 
         while current_node:
@@ -166,24 +166,31 @@ def test_linked_list():
 
     # TEST APPEND
     print('\nTesting append:')
+
     for item in ['A', 'B', 'C']:
+        start = time.perf_counter()
         print('append({!r})'.format(item))
         ll.append(item)
         print('list: {}'.format(ll))
         print('head: {}'.format(ll.head))
         print('tail: {}\n'.format(ll.tail))
+        elapsed = time.perf_counter()
 
     print('list: {}'.format(ll))
     print('length: {}'.format(ll.length()))
 
+    print(f'Time spent appending a new node: {elapsed - start}\n')
+
     # TEST REPLACE
     print('\nTesting replace:')
+    start = time.perf_counter()
     for item in ['A', 'B', 'C']:
         print('replace({!r})'.format(item))
         ll.replace(item, 'J')
         print('list: {}'.format(ll))
         print('head: {}'.format(ll.head))
         print('tail: {}\n'.format(ll.tail))
+        elapsed = time.perf_counter()
         break
 
     # TEST PREPEND
@@ -191,7 +198,8 @@ def test_linked_list():
     ll.prepend('A')
     print('list: {}'.format(ll))
     print('head: {}'.format(ll.head))
-    print('tail: {}\n'.format(ll.tail))
+    print('tail: {}'.format(ll.tail))
+    print(f'Time spent replacing a node: {elapsed - start}\n')
 
     # Enable this after implementing delete method
     delete_implemented = True
