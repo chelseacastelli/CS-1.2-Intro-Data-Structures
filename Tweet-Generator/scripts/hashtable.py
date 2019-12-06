@@ -1,7 +1,7 @@
 #!python
 
 from linkedlist import LinkedList
-
+import time
 
 class HashTable(object):
 
@@ -134,19 +134,28 @@ def test_hash_table():
     print('\nTesting set:')
     for key, value in [('I', 1), ('V', 5), ('X', 10)]:
         print('set({!r}, {!r})'.format(key, value))
+        start = time.perf_counter()
         ht.set(key, value)
+        elapsed = time.perf_counter()
         print('hash table: {}'.format(ht))
+    print(f'Time spent inserting or updating given key: {elapsed - start}\n')
 
     print('\nTesting values:')
+    start = time.perf_counter()
     print(ht.values())
+    elapsed = time.perf_counter()
+    print(f'Time spent returning all values in hash table: {elapsed - start}\n')
 
     print('\nTesting get:')
     for key in ['I', 'V', 'X']:
+        start = time.perf_counter()
         value = ht.get(key)
+        elapsed = time.perf_counter()
         print('get({!r}): {!r}'.format(key, value))
 
     print('contains({!r}): {}'.format('X', ht.contains('X')))
     print('length: {}'.format(ht.length()))
+    print(f'Time spent returning value of given key: {elapsed - start}\n')
 
     # Enable this after implementing delete method
     delete_implemented = True
@@ -154,12 +163,14 @@ def test_hash_table():
         print('\nTesting delete:')
         for key in ['I', 'V', 'X']:
             print('delete({!r})'.format(key))
+            start = time.perf_counter()
             ht.delete(key)
+            elapsed = time.perf_counter()
             print('hash table: {}'.format(ht))
 
         print('contains(X): {}'.format(ht.contains('X')))
         print('length: {}'.format(ht.length()))
-
+        print(f'Time spent deleting given key: {elapsed - start}\n')
 
 if __name__ == '__main__':
     test_hash_table()
