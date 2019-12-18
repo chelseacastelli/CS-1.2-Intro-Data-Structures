@@ -1,7 +1,7 @@
 from random import randint, randrange, choice
 from cleanup import read_in_data, clean_text, add_stop
 from dictogram import Dictogram
-from queue import Queue
+from q import Queue
 
 def markov_histo(corpus):
     '''Creates markov chain with histogram'''
