@@ -54,22 +54,22 @@ def random_walk(markov, steps):
     '''Given a starting word, picks a random word from markov list and walks to given number of steps to generate a sentence'''
 
     sentence = []
-    queue = Queue()
+    q = Queue()
 
     state = random_state(markov)
-    queue.enqueue(state[0])
+    q.enqueue(state[0])
     sentence.append(state[0])
-    queue.enqueue(state[1])
+    q.enqueue(state[1])
     sentence.append(state[1])
 
     i = 2
     while i != steps:
         next_word = stochastic_sample(markov, state)
 
-        if len(queue) == 3:
-            queue.dequeue()
+        if len(q) == 3:
+            q.dequeue()
 
-        queue.enqueue(next_word)
+        q.enqueue(next_word)
         sentence.append(next_word)
 
         state = (state[1], next_word)
