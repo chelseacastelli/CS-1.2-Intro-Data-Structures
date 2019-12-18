@@ -80,20 +80,3 @@ def random_walk(markov, steps):
         i += 1
 
     return sentence
-
-if __name__ == "__main__":
-    file = 'static/tumblr_wordz.txt'
-    text = read_in_data(file)
-    clean = clean_text(text)
-    endstop = add_stop(clean)
-
-    markov = markov_histo(endstop)
-
-    init_word = choice([word for word in endstop if word != endstop[:-1]])
-
-    word = stochastic_sample(markov, init_word)
-    random_int = randint(3,10)
-    walk = random_walk(init_word, markov, random_int)
-
-    cap = " ".join(walk).capitalize()
-    print(f"{cap}.")
