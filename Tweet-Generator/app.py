@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, request, url_for
 from cleanup import read_in_data, clean_text, add_stop, create_sentence
 from random import randint, choice
-from markov_chain import higher_markov, stochastic_sample, random_walk
+from markov_chain import higher_markov, random_walk
 
 app = Flask(__name__)
 
